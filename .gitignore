@@ -1,0 +1,9 @@
+*.ts
+!index.ts
+!character.ts
+.env
+*.env
+.env*
+node_modules
+
+db.sqlite

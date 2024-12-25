@@ -23,7 +23,6 @@ import {
   validateCharacterConfig,
 } from "@ai16z/eliza";
 import { bootstrapPlugin } from "@ai16z/plugin-bootstrap";
-import { solanaPlugin } from "@ai16z/plugin-solana";
 import { nodePlugin } from "@ai16z/plugin-node";
 import Database from "better-sqlite3";
 import fs from "fs";
@@ -33,6 +32,8 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { character } from "./character.ts";
 import type { DirectClient } from "@ai16z/client-direct";
+import { jupSwapInfo } from "./jupSwapInfo.ts";
+import { jupTokenInfo } from "./jupTokenInfo.ts";
 
 const __filename = fileURLToPath(import.meta.url); // get the resolved path to the file
 const __dirname = path.dirname(__filename); // get the name of the directory
@@ -217,13 +218,9 @@ export function createAgent(
     modelProvider: character.modelProvider,
     evaluators: [],
     character,
-    plugins: [
-      bootstrapPlugin,
-      nodePlugin,
-      character.settings.secrets?.WALLET_PUBLIC_KEY ? solanaPlugin : null,
-    ].filter(Boolean),
+    plugins: [bootstrapPlugin, nodePlugin].filter(Boolean),
     providers: [],
-    actions: [],
+    actions: [jupSwapInfo, jupTokenInfo],
     services: [],
     managers: [],
     cacheManager: cache,

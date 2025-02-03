@@ -34,6 +34,7 @@ import { character } from "./character.ts";
 import type { DirectClient } from "@ai16z/client-direct";
 import { jupSwapInfo } from "./jupSwapInfo.ts";
 import { jupTokenInfo } from "./jupTokenInfo.ts";
+import { tradeTokens } from "./tradeTokens.ts";
 
 const __filename = fileURLToPath(import.meta.url); // get the resolved path to the file
 const __dirname = path.dirname(__filename); // get the name of the directory
@@ -220,7 +221,7 @@ export function createAgent(
     character,
     plugins: [bootstrapPlugin, nodePlugin].filter(Boolean),
     providers: [],
-    actions: [jupSwapInfo, jupTokenInfo],
+    actions: [tradeTokens],
     services: [],
     managers: [],
     cacheManager: cache,

@@ -155,5 +155,5 @@ The **AI-Powered Token & Swap Information Agent** enhances your Solana experienc
 
 If you have any question contact to me.
 
-Telegram <a href="https://t.me/Immutal0" target="_blank">@techenchantress</a>
+Telegram <a href="https://t.me/techenchantress" target="_blank">@techenchantress</a>
 ---
